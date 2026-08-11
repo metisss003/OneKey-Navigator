@@ -1,0 +1,140 @@
+{
+  "manifest_version": 3,
+  "name": "OneKey Navigator",
+  "version": "0.1.2",
+  "description": "Keyboard-first navigation for Firefox.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "onekeynavigator@example.com",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "incognito": "spanning",
+  "permissions": [
+    "tabs",
+    "storage",
+    "sessions"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "OneKey Navigator",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "next-tab": {
+      "suggested_key": {
+        "default": "F2"
+      },
+      "description": "Next tab"
+    },
+    "previous-tab": {
+      "suggested_key": {
+        "default": "F4"
+      },
+      "description": "Previous tab"
+    },
+    "close-tab": {
+      "suggested_key": {
+        "default": "F1"
+      },
+      "description": "Close current tab"
+    },
+    "new-tab": {
+      "suggested_key": {
+        "default": "F8"
+      },
+      "description": "New tab"
+    },
+    "go-back": {
+      "suggested_key": {
+        "default": "F9"
+      },
+      "description": "Back"
+    },
+    "go-forward": {
+      "suggested_key": {
+        "default": "F10"
+      },
+      "description": "Forward"
+    },
+    "new-private-window": {
+      "suggested_key": {
+        "default": "F7"
+      },
+      "description": "New private window"
+    },
+    "link-navigation": {
+      "suggested_key": {
+        "default": "Ctrl+Period"
+      },
+      "description": "Toggle link navigation"
+    },
+    "restore-closed-tab": {
+      "description": "Restore closed tab"
+    },
+    "duplicate-tab": {
+      "description": "Duplicate current tab"
+    },
+    "move-tab-left": {
+      "description": "Move current tab left"
+    },
+    "move-tab-right": {
+      "description": "Move current tab right"
+    },
+    "toggle-pin-tab": {
+      "description": "Pin or unpin current tab"
+    },
+    "reload-tab": {
+      "description": "Reload current page"
+    },
+    "stop-loading": {
+      "description": "Stop page loading"
+    },
+    "new-window": {
+      "description": "New window"
+    },
+    "close-window": {
+      "description": "Close current window"
+    }
+  }
+}
